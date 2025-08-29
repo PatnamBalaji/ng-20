@@ -1,0 +1,28 @@
+.table-container {
+  overflow: auto;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+mat-chip {
+  color: #fff;
+  font-weight: 500;
+  padding: 0 8px;
+}
+mat-chip.new {
+  background: #43a047;
+}
+mat-chip.lead {
+  background: #1976d2;
+}
+mat-chip.completed {
+  background: #9c27b0;
+}

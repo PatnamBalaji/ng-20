@@ -1,0 +1,36 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  background-color: #fafafa;
+  padding: 30px;
+  background: #e7e7e747;
+}
+
+.form-card {
+  padding: 24px;
+  max-height: 300px;
+}
+
+.product-form {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.form-field {
+  width: 25%;
+  /* Override Angular Material outline border color */
+  .mat-form-field-outline {
+    stroke: gray !important;
+  }
+}
+
+.form-checkbox {
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.submit-button {
+  align-self: flex-start;
+}

@@ -1,0 +1,22 @@
+<mat-toolbar color="primary" style="justify-content: space-between">
+  <span>Product Management</span>
+  <button mat-raised-button color="accent" (click)="onAddProduct()">
+    Add Product
+  </button>
+</mat-toolbar>
+
+<!-- Product Form can be toggled or shown in dialog/modal -->
+
+<!-- AG Grid -->
+<div class="ag-theme-alpine">
+  <ag-grid-angular
+    style="height: 400px; width: 100%; margin-top: 10px"
+    [theme]="'legacy'"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    rowSelection="single"
+    class="ag-theme-alpine"
+    (gridReady)="onGridReady($event)"
+  >
+  </ag-grid-angular>
+</div>

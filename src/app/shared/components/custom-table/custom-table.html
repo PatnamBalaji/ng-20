@@ -1,0 +1,55 @@
+<mat-card>
+  <mat-toolbar color="primary">
+    <span>Custom Table</span>
+    <span class="spacer"></span>
+
+    <!-- Search Input -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ filterPlaceholder }}</mat-label>
+      <input matInput (keyup)="applyFilter($event)" />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </mat-toolbar>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2">
+      <!-- Dynamic Columns -->
+      <ng-container *ngFor="let column of columns" [matColumnDef]="column.key">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          {{ column.label }}
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <!-- Avatar & Name -->
+          <ng-container *ngIf="column.type === 'avatar'">
+            <img class="avatar" [src]="element[column.key]" alt="avatar" />
+          </ng-container>
+
+          <!-- Status Chips -->
+          <ng-container *ngIf="column.type === 'status'">
+            <mat-chip [ngClass]="element[column.key] | lowercase">{{
+              element[column.key]
+            }}</mat-chip>
+          </ng-container>
+
+          <!-- Default Text -->
+          <ng-container
+            *ngIf="
+              !column.type ||
+              (column.type !== 'avatar' && column.type !== 'status')
+            "
+          >
+            {{ element[column.key] }}
+          </ng-container>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+  ></mat-paginator>
+</mat-card>
