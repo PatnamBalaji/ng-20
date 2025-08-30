@@ -27,8 +27,8 @@ export const routes: Routes = [
             (m) => m.AddProduct
           ),
       },
+      { path: '', redirectTo: 'products', pathMatch: 'full' },
     ],
   },
-  { path: '', redirectTo: 'products', pathMatch: 'full' },
   { path: '**', redirectTo: 'products' },
 ];
